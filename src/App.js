@@ -58,21 +58,19 @@ class App extends Component {
 	}
 
 	render() {
-		if(!this.state.user){
-			return (
-				<button onClick={this.login}>Log In</button>  
-			);
-		}
 		return (
 			<div>
 				<div className="site-header">
 				<h1 className="site-title">FishTrak</h1>
 				<div>
-				{this.state.createNew ?
+				{this.state.user ?
+				[(this.state.createNew ?
     			<button className="button-custom btn btn-info" onClick={this.showTable}>Cancel</button>                
     			:
     			<button className="button-custom btn btn-info" onClick={this.createNew}>New Fish</button>              
-				}
+				),]
+				: <></>
+			}
 
 				{this.state.user ?
     			<button className="button-custom btn btn-dark" onClick={this.logout}>Log Out</button>                
@@ -83,7 +81,7 @@ class App extends Component {
 				</div>
 				<div className="input-box">
 					{this.state.createNew ?
-						<NewFish user={this.state.user}/>
+						<NewFish onSubmit={() => this.setState({createNew: false})} user={this.state.user}/>
 						:
 						<FishData/>
 					}

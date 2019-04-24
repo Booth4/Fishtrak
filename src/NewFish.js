@@ -22,10 +22,10 @@ class NewFish extends Component {
 		}
 
 		handleChange(event) {
-		const target = event.target;
-		const name = target.name;
+			const target = event.target;
+			const name = target.name;
 
-		this.setState({[name]: target.value});
+			this.setState({[name]: target.value});
 		}
 
 		handleSubmit(event){
@@ -42,6 +42,8 @@ class NewFish extends Component {
 			user: this.state.user.displayName
 		}
 		itemsRef.push(fish);
+		
+		this.props.onSubmit();
 		}
 
 		reset(){
@@ -57,34 +59,41 @@ class NewFish extends Component {
 
 	render() {
 		return (
+			
 			<form className="input-box" onSubmit={this.handleSubmit}>
-				<div className="form-group">
+			<div className="row">
+				<div className="col-md-4 form-group">
 					<label for="length">Fish Length(in):</label>
 					<input id="length" className="form-control" name="length" type="number" value={this.state.length} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
+				<div className="col-md-4 form-group">
 					<label for="weight">Fish Weight(lb):</label>
 					<input id="weight" className="form-control" name="weight" type="number" value={this.state.weight} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
+				<div className="col-md-4 form-group">
+					<label for="date">Date:</label>
+						<input id="date" className="form-control" name="date" type="date" value={this.state.date} onChange={this.handleChange} />
+				</div>
+				</div>
+				<div className="row">
+				<div className="col-md-6 form-group">
 					<label for="lineLength">Line Length(ft):</label>
 						<input id="lineLength" className="form-control" name="lineLength" type="number" value={this.state.lineLength} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
+				<div className="col-md-6 form-group">
 					<label for="sinkerWeight">Sinker Weight(oz):</label>
 						<input id="sinkerWeight" className="form-control" name="sinkerWeight" type="number" value={this.state.sinkerWeight} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
+				</div>
+				<div className="row">
+				<div className="col-md-6 form-group">
 					<label for="lure">Lure Type:</label>
 						<input id="lure" className="form-control" name="lure" type="text" value={this.state.lure} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
+				<div className="col-md-6 form-group">
 					<label for="color">Lure Color:</label>
 						<input id="color" className="form-control" name="color" type="text" value={this.state.color} onChange={this.handleChange} />
 				</div>
-				<div className="form-group">
-					<label for="date">Date:</label>
-						<input id="date" className="form-control" name="date" type="date" value={this.state.date} onChange={this.handleChange} />
 				</div>
 				<div className="form-group">
 					<input type="submit" value="Submit"/>
