@@ -96,8 +96,8 @@ class NewFish extends Component {
 				</div>
 				</div>
 				<div className="form-group">
-					<input type="submit" value="Submit"/>
-					<input type="button" value="Reset" onClick={this.reset}/>
+					<input className="btn btn-info" type="submit" value="Submit"/>
+					<input className="btn btn-dark" type="button" value="Reset" onClick={this.reset}/>
 				</div>
 			</form>
 	);
