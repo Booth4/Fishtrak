@@ -12,7 +12,8 @@ class NewFish extends Component {
 			sinkerWeight: '',
 			lure: '',
 			color: '',
-			date: ''
+			date: '',
+			user: this.props.user
 		};
 	
 		this.handleChange = this.handleChange.bind(this);
@@ -37,7 +38,8 @@ class NewFish extends Component {
 			sinkerWeight: this.state.sinkerWeight,
 			lure: this.state.lure,
 			color: this.state.color,
-			date: this.state.date
+			date: this.state.date,
+			user: this.state.user.displayName
 		}
 		itemsRef.push(fish);
 		}

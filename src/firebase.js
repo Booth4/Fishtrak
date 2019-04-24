@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 var config = {
 	apiKey: "AIzaSyCKU96HK4Ih2ZEeFj-O7Q3hqRxmTNcMZkg",
 	authDomain: "fish-trak.firebaseapp.com",

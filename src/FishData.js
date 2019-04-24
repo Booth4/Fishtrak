@@ -32,7 +32,7 @@ class FishData extends Component {
 	render() {
 		return (
 			<div className="">
-	  	  <ul>
+	  	  <table>
   		    {this.state.fish.map((fishItem) => {
   		      return (
   		        <li key={fishItem.id}>
@@ -41,7 +41,7 @@ class FishData extends Component {
   		        </li>
   		      )
   		    })}
-  		  </ul>
+  		  </table>
   		</div>
 		);
 	}
