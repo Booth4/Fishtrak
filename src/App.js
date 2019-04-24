@@ -40,7 +40,8 @@ class App extends Component {
 		auth.signOut()
     .then(() => {
       this.setState({
-        user: null
+				user: null,
+				createNew: false
       });
     });
 	}
