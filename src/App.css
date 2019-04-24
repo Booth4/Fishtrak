@@ -27,6 +27,35 @@
 	margin: 30px;
 }
 
+.button-custom {
+	border-radius: 0;
+	height: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.site-title {
+	margin: 0;
+	margin-top: 10px;
+	line-height: .8;
+	align-self: flex-end;
+	font-weight: bolder;
+	font-size: 4rem;
+	color: #17a2b8;
+}
+
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	background: #c0deff;
+	padding: 0px;
+	padding-left: 40px;
+	color: #173b63;
+	border-bottom: solid;
+	border-bottom-width: 15px;
+	border-color: #17a2b8;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

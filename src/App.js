@@ -8,11 +8,14 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			user: null
+			user: null,
+			createNew: false
 		}
 
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
+		this.showTable = this.showTable.bind(this);
+		this.createNew = this.createNew.bind(this);
 	}
 
 	componentDidMount() {
@@ -42,6 +45,18 @@ class App extends Component {
     });
 	}
 
+	showTable() {
+		this.setState({
+			createNew: false
+		});
+	}
+
+	createNew() {
+		this.setState({
+			createNew: true
+		});
+	}
+
 	render() {
 		if(!this.state.user){
 			return (
@@ -50,19 +65,28 @@ class App extends Component {
 		}
 		return (
 			<div>
-				<h2>FishTrak</h2>
-				{this.state.user ?
-    			<button onClick={this.logout}>Log Out</button>                
+				<div className="site-header">
+				<h1 className="site-title">FishTrak</h1>
+				<div>
+				{this.state.createNew ?
+    			<button className="button-custom btn btn-info" onClick={this.showTable}>Cancel</button>                
     			:
-    			<button onClick={this.login}>Log In</button>              
+    			<button className="button-custom btn btn-info" onClick={this.createNew}>New Fish</button>              
 				}
-				<div className="row">
-					<div className="col-md-6">
+
+				{this.state.user ?
+    			<button className="button-custom btn btn-dark" onClick={this.logout}>Log Out</button>                
+    			:
+    			<button className=" button-custom btn btn-dark" onClick={this.login}>Log In</button>              
+				}
+				</div>
+				</div>
+				<div className="input-box">
+					{this.state.createNew ?
 						<NewFish user={this.state.user}/>
-					</div>
-					<div className="col-md-6">
+						:
 						<FishData/>
-					</div>
+					}
 				</div>
 			</div>
 		);

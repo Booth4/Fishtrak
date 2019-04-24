@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NewFish from './NewFish.js';
 import firebase, { auth, provider } from './firebase.js';
 import './App.css';
 
@@ -19,6 +18,7 @@ class FishData extends Component {
 			for (let fishItem in fish) {
 				newState.push({
 					id: fishItem,
+					user: fish[fishItem].user,
 					length: fish[fishItem].length,
 					weight: fish[fishItem].weight
 				});
@@ -33,14 +33,23 @@ class FishData extends Component {
 		return (
 			<div className="">
 	  	  <table>
+					<tbody>
+					<tr>
+						<th>Fisherman</th>
+						<th>Length</th>
+						<th>Weight</th>
+					</tr>
   		    {this.state.fish.map((fishItem) => {
   		      return (
-  		        <li key={fishItem.id}>
-  		          <p>Length: {fishItem.length}</p>
-  		          <p>Weight: {fishItem.weight}</p>
-  		        </li>
+							<tr key={fishItem.id}>
+								<td>{fishItem.user}</td>
+								<td>{fishItem.length}</td>
+  		          <td>{fishItem.weight}</td>
+							</tr>
+  		          
   		      )
-  		    })}
+					})}
+					</tbody>
   		  </table>
   		</div>
 		);

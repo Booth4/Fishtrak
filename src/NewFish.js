@@ -51,7 +51,8 @@ class NewFish extends Component {
 			lineLength: '',
 			sinkerWeight: '',
 			lure: '',
-			color: ''});
+			color: '',
+			date: ''});
 		}
 
 	render() {
